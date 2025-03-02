@@ -2,22 +2,11 @@ services:
     tabby:
         build: .
         restart: always
-        depends_on:
-        - db
         ports:
         - 9090:80
         environment:
-        - DATABASE_URL=mysql://root:123@db/tabby
+        - DATABASE_URL=${DATABASE_URL}
         - PORT=80
         - DEBUG=False
-        - DOCKERIZE_ARGS="-wait tcp://db:3306 -timeout 60s"
+        - DOCKERIZE_ARGS="-wait tcp://45.84.197.30:3306 -timeout 60s"
         # - APP_DIST_STORAGE="file:///app-dist"
-
-    db:
-        image: mariadb:10.7.1
-        restart: always
-        environment:
-            MARIADB_DATABASE: tabby
-            MARIADB_USER: user
-            MARIADB_PASSWORD: 123
-            MYSQL_ROOT_PASSWORD: 123
