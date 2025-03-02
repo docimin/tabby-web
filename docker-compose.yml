@@ -9,4 +9,6 @@ services:
         - PORT=80
         - DEBUG=False
         - DOCKERIZE_ARGS="-wait tcp://45.84.197.30:3306 -timeout 60s"
+        - SOCIAL_AUTH_GITHUB_KEY=${SOCIAL_AUTH_GITHUB_KEY}
+        - SOCIAL_AUTH_GITHUB_SECRET=${SOCIAL_AUTH_GITHUB_SECRET}
         # - APP_DIST_STORAGE="file:///app-dist"
